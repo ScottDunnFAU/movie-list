@@ -1,6 +1,6 @@
 import MovieCard from "./MovieCard"
 
-export default function Dashboard({ movies, onAddMovie, onEdit, onDelete }) {
+export default function Dashboard({ movies, loading, error, onAddMovie, onEdit, onDelete }) {
   const countLabel =
     movies.length === 0
       ? "Nothing saved yet"
@@ -13,10 +13,16 @@ export default function Dashboard({ movies, onAddMovie, onEdit, onDelete }) {
       <div className="container">
         <div className="dashboard-heading">
           <h2>Your movies</h2>
-          <p>{countLabel}</p>
+          <p>{loading ? "Loading your movies..." : countLabel}</p>
         </div>
 
-        {movies.length === 0 ? (
+        {error ? (
+          <p className="message" role="alert">
+            {error}
+          </p>
+        ) : null}
+
+        {!loading && movies.length === 0 && !error ? (
           <div className="empty-state">
             <h3>Your watchlist is empty</h3>
             <p>Add a movie to start keeping track of what you want to see.</p>
@@ -24,7 +30,9 @@ export default function Dashboard({ movies, onAddMovie, onEdit, onDelete }) {
               Add Movie
             </button>
           </div>
-        ) : (
+        ) : null}
+
+        {!loading && movies.length > 0 ? (
           <ul className="movie-grid">
             {movies.map((movie) => (
               <li key={movie.id}>
@@ -32,7 +40,7 @@ export default function Dashboard({ movies, onAddMovie, onEdit, onDelete }) {
               </li>
             ))}
           </ul>
-        )}
+        ) : null}
       </div>
     </main>
   )

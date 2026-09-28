@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { MOVIE_STATUSES } from "../data/sampleMovies"
+const MOVIE_STATUSES = ["Want to Watch", "Watching", "Watched"]
 
 const CURRENT_YEAR = new Date().getFullYear()
 
@@ -42,7 +42,7 @@ function createFormState(movie) {
   }
 }
 
-export default function MovieForm({ movie, onSave, onClose }) {
+export default function MovieForm({ movie, onSave, onClose, saveError, saving }) {
   const [form, setForm] = useState(() => createFormState(movie))
   const isEditing = Boolean(movie)
 
@@ -181,12 +181,18 @@ export default function MovieForm({ movie, onSave, onClose }) {
             />
           </div>
 
+          {saveError ? (
+            <p className="message" role="alert">
+              {saveError}
+            </p>
+          ) : null}
+
           <div className="form-actions">
-            <button type="button" className="button button-secondary" onClick={onClose}>
+            <button type="button" className="button button-secondary" onClick={onClose} disabled={saving}>
               Cancel
             </button>
-            <button type="submit" className="button button-primary">
-              {isEditing ? "Save changes" : "Add movie"}
+            <button type="submit" className="button button-primary" disabled={saving}>
+              {saving ? "Saving..." : isEditing ? "Save changes" : "Add movie"}
             </button>
           </div>
         </form>

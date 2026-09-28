@@ -67,7 +67,27 @@ p {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  flex-wrap: wrap;
   min-height: 4.25rem;
+  padding: 0.75rem 0;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.header-user {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #e7e5e4;
+}
+
+.site-header .button-secondary {
+  color: var(--ink);
 }
 
 .site-header h1 {
@@ -403,6 +423,55 @@ p {
   justify-content: flex-end;
   gap: 0.5rem;
   margin-top: 0.25rem;
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.auth-card {
+  max-width: 28rem;
+  margin: 1rem auto 0;
+  padding: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+.auth-card h2 {
+  margin-bottom: 0.35rem;
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.auth-intro,
+.loading-message {
+  color: var(--muted);
+}
+
+.auth-intro {
+  margin-bottom: 1rem;
+}
+
+.message {
+  margin-bottom: 0.9rem;
+  color: var(--danger);
+}
+
+.message.is-success {
+  color: #166534;
+}
+
+.text-button {
+  margin-top: 0.9rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 @media (max-width: 640px) {
