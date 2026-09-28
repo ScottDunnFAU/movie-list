@@ -80,7 +80,7 @@ Row Level Security is enabled. Authenticated users can select, insert, update, a
 
 ## Deployment
 
-[Deployed App](PASTE_DEPLOYED_URL_HERE)
+[Deployed App](https://melodic-griffin-dd213c.netlify.app/)
 
 ## Project Structure
 
