@@ -82,6 +82,10 @@ Row Level Security is enabled. Authenticated users can select, insert, update, a
 
 [Deployed App](https://melodic-griffin-dd213c.netlify.app/)
 
+## Demo
+
+[YouTube Demo (3:30)](https://www.youtube.com/watch?v=WIisdzm2-no)
+
 ## Project Structure
 
 - `src/main.jsx` starts the React app.
